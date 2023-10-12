@@ -16,11 +16,14 @@ config({
 app.use(express.json()); //Use first
 app.use(cookieParser());
 
-app.use(cors({
-    origin: [process.env.FRONTEND_URL],
+
+const corsOptions ={
+    origin:[process.env.FRONTEND_URL], 
     methods: ["GET","POST", "PUT", "DELETE"],
-    credentials: true,
-}));
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
 //custom url /users is added and it will be present in every url
 //using routes
 app.use("/api/v1/users", userRouter) 
@@ -28,11 +31,6 @@ app.use("/api/v1/task", taskRouter)
 
 app.get("/", (req, res) => {
     res.send("Nice working");
-    res.setHeader("Access-Control-Allow-Origin", "*")
-res.setHeader("Access-Control-Allow-Credentials", "true");
-res.setHeader("Access-Control-Max-Age", "1800");
-res.setHeader("Access-Control-Allow-Headers", "content-type");
-res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
   });
   
 //Error middleware
