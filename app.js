@@ -17,7 +17,7 @@ app.use(express.json()); //Use first
 app.use(cookieParser());
 
 app.use(cors({
-    origin: 'http://localhost:5173/',
+    origin: [process.env.FRONTEND_URL],
     methods: ["GET","POST", "PUT", "DELETE"],
     credentials: true,
 }));
@@ -28,6 +28,11 @@ app.use("/api/v1/task", taskRouter)
 
 app.get("/", (req, res) => {
     res.send("Nice working");
+    res.setHeader("Access-Control-Allow-Origin", "*")
+res.setHeader("Access-Control-Allow-Credentials", "true");
+res.setHeader("Access-Control-Max-Age", "1800");
+res.setHeader("Access-Control-Allow-Headers", "content-type");
+res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
   });
   
 //Error middleware
