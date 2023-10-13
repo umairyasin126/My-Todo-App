@@ -23,7 +23,7 @@ const corsOptions ={
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
 }
-app.use(cors(corsOptions));
+app.use(cors());
 //custom url /users is added and it will be present in every url
 //using routes
 app.use("/api/v1/users", userRouter) 
