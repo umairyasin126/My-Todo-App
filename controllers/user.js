@@ -62,7 +62,7 @@ export const logout = (req, res) => {
     .status(200)
     .cookie("token", "", { 
       expires: new Date(Date.now()),
-      sameSite: process.env.NODE_ENV === "Developement" ? "lax": none,
+      sameSite: process.env.NODE_ENV === "Developement" ? "lax": "none",
       secure: process.env.NODE_ENV === "Developement" ? false: true,
      })
     .json({
