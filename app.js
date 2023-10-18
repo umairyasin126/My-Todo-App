@@ -18,7 +18,7 @@ app.use(cookieParser());
 
 
 const corsOptions ={
-    origin: [process.env.FRONTEND_URL],
+    origin: "https://todo-app-frontend-iota.vercel.app",
     methods: ["GET","POST", "PUT", "DELETE"],
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
