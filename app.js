@@ -18,10 +18,10 @@ app.use(cookieParser());
 
 
 const corsOptions ={
-    origin: "https://todo-app-frontend-iota.vercel.app/login",
+    origin: "https://todo-app-frontend-iota.vercel.app",
     methods: ["GET","POST", "PUT", "DELETE"],
     credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200
+    optionSuccessStatus:200,
 }
 app.use(cors(corsOptions));
 //custom url /users is added and it will be present in every url
